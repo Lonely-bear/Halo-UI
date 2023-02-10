@@ -2,7 +2,8 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 import type { PropType } from 'vue'
 import type { MessageTypes } from './message.types'
-import { HIcon } from '../../../packages';
+import { HIcon } from '../../../../packages';
+import type { name as IconName } from '../../../basic/icon/src/icon.types'
 
 const props = defineProps({
     message: { type: String, default: '' },
@@ -34,7 +35,7 @@ onUnmounted(() => {
 })
 
 
-let iconName = ref("information-o");
+let iconName = ref<IconName>("information-o");
 switch (props.type) {
     case 'primary':
         iconName.value = "information-o";
@@ -66,6 +67,8 @@ switch (props.type) {
 
 <style scoped>
 .message {
+    max-width: 65%;
+    width: fit-content;
     position: fixed;
     top: v-bind(top);
     left: 50%;
@@ -79,7 +82,7 @@ switch (props.type) {
     border-radius: 5px;
     box-shadow: 0 0 4px var(--message-box-shadow-color);
     user-select: none;
-    z-index: 999;
+    z-index: 99999;
     transition: all 0.2s linear;
 
     display: flex;

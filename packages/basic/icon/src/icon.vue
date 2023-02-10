@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import '@uiw/icons/fonts/w-icon.css';
+import type { PropType } from 'vue';
+import type { name } from './icon.types'
 
 const props = defineProps({
     name: {
-        type: String,
-        default: ''
+        type: String as PropType<name>,
+        default: '',
+        required: true
     },
     color: {
         type: String,
