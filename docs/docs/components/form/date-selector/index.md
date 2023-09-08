@@ -11,10 +11,6 @@
         height: auto;
     }
 </style>
-<script>
-let dateValue = ''
-</script>
-
 # date-selector 日期选择器
 
 <hr>
@@ -30,7 +26,7 @@ let dateValue = ''
 <h3 class="h-3">演示及示例代码</h3>
 
 <HCollapse title="普通使用（需v-model绑定动态数据才能修改数据）" collapse-title="示例代码" style="width: 100%;">
-<HDateSelector v-model="dateValue" alwaysShow />
+<HDateSelectorCard />
 <br>
 <br>
 <br>
@@ -53,8 +49,17 @@ let dateValue = ''
 
 <template #collapseContent>
 
-```html
-<HDateSelector v-model="dateValue" alwaysShow />
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+import { HDateSelector } from '../..'
+
+const value = ref('')
+</script>
+
+<template>
+  <HDateSelector v-model="value" />
+</template>
 ```
 
 </template>

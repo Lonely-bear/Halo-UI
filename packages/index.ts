@@ -12,9 +12,12 @@ import HEllipsis from './basic/ellipsis'; // 文本省略号
 import HInput from './form/input';  // 输入框
 
 
+
 // docs 用
-import HIconCard from './docs/HIconCard';  // 输入框
+import HIconCard from './docs/HIconCard';  // icon
 import HDialogCard from './docs/HDialogCard';  // 输入框
+import HDateSelectorCard from './docs/HDateSelectorCard';  // 日期选择器
+import HMessageCard from './docs/HMessageCard';  // 消息提示
 
 const plugins = [
   Message,
@@ -29,7 +32,9 @@ const plugins = [
   HEllipsis,
   HInput,
   HIconCard,
-  HDialogCard
+  HDialogCard,
+  HDateSelectorCard,
+  HMessageCard
 ];
 
 const install = (app: App) => {
@@ -50,5 +55,7 @@ export {
   HEllipsis,
   HInput,
   HIconCard,
-  HDialogCard
+  HDialogCard,
+  HDateSelectorCard,
+  HMessageCard
 };
