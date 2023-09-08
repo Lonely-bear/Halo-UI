@@ -1,4 +1,6 @@
 # 😁快速上手
+### 组件文档地址
+ * [Docs👻👻](http://halodocs_wk.shznykx.cn/)
 ### 依赖环境
  * [Vue3](https://cn.vuejs.org/)
  * Node.js
