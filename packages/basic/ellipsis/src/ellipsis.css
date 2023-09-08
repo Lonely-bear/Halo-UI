@@ -1,0 +1,11 @@
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsis-line {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}

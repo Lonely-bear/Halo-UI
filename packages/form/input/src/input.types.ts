@@ -1,0 +1,1 @@
+export type type = "button" | "checkbox" | "color" | "date" | "datetime-local" | "email" | "file" | "hidden" | "image" | "month" | "number" | "password" | "radio" | "name" | "range" | "reset" | "search" | "submit" | "tel" | "text" | "time" | "url" | "week"

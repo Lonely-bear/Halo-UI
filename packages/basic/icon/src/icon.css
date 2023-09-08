@@ -1,0 +1,25 @@
+.icon {
+  display: inline-block;
+  width: min-content;
+  height: min-content;
+  vertical-align: middle;
+}
+
+.loading {
+  transform: rotate(360deg);
+  animation-name: loading;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}

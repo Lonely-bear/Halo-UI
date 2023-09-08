@@ -1,0 +1,20 @@
+.input_value {
+  width: 16em;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 0 1px inset rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 0.6em 0.8em;
+  transition: all 0.5s;
+  color: #414141;
+  caret-color: #616161;
+  line-height: normal;
+}
+
+.input_value:focus {
+  box-shadow: 0 0 0 1px inset rgb(14, 110, 227);
+}
+
+.input_value:hover {
+  box-shadow: 0 0 0 1px inset rgb(14, 110, 227);
+}
