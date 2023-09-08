@@ -1,4 +1,4 @@
-export const data = JSON.parse("{\"key\":\"v-0f029e3c\",\"path\":\"/components/form/date-selector/\",\"title\":\"date-selector\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"headers\":[],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"components/form/date-selector/index.md\"}")
+export const data = JSON.parse("{\"key\":\"v-0f029e3c\",\"path\":\"/components/form/date-selector/\",\"title\":\"date-selector 日期选择器\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"headers\":[],\"git\":{\"updatedTime\":1676058202000,\"contributors\":[{\"name\":\"WangKang1555\",\"email\":\"488376359@qq.com\",\"commits\":1}]},\"filePathRelative\":\"components/form/date-selector/index.md\"}")
 
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept()

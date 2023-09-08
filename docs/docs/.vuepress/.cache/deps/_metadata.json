@@ -1,29 +1,23 @@
 {
-  "hash": "35db7db7",
-  "browserHash": "075d2861",
+  "hash": "c4dc94d8",
+  "browserHash": "7467b31e",
   "optimized": {
     "@vuepress/shared": {
       "src": "../../../../node_modules/@vuepress/shared/dist/index.js",
       "file": "@vuepress_shared.js",
-      "fileHash": "4fc3687b",
+      "fileHash": "60823105",
       "needsInterop": false
     },
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "93af32ec",
+      "fileHash": "5c0a7c77",
       "needsInterop": false
     },
     "vue-router": {
       "src": "../../../../node_modules/vue-router/dist/vue-router.esm-bundler.js",
       "file": "vue-router.js",
-      "fileHash": "f5c231e6",
-      "needsInterop": false
-    },
-    "tk-personal-components": {
-      "src": "../../../../../../personal-components-docs/node_modules/tk-personal-components/dist/tk-lib.es.js",
-      "file": "tk-personal-components.js",
-      "fileHash": "9e2dd5fd",
+      "fileHash": "c233bdcf",
       "needsInterop": false
     }
   },

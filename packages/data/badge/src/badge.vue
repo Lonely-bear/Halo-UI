@@ -11,22 +11,17 @@
 <script lang="ts" setup>
 import { ref, onMounted, watch, nextTick } from 'vue';
 
-const props = defineProps({
-    value: {
-        type: [String, Number],
-    },
-    color: {
-        type: String,
-        default: '#f56c6c'
-    },
-    textColor: {
-        type: String,
-        default: '#ffffff'
-    },
-    max: {
-        type: Number,
-        default: 99
-    }
+type Props = {
+    value?: string | number,
+    color?: string,
+    textColor?: string,
+    max?: number
+}
+const props = withDefaults(defineProps<Props>(), {
+    value: '',
+    color: '#f56c6c',
+    textColor: '#ffffff',
+    max: 99
 })
 
 const badge = ref<HTMLDivElement | null>(null);
@@ -65,43 +60,14 @@ watch(props, () => {
 </script>
 
 <style scoped>
-.badge-box {
-    display: inline-block;
-    height: min-content;
-    width: min-content;
-    position: relative;
-}
-
-.badge-main {
-    display: inline-block;
-    z-index: 1;
-}
-
+@import url('./badge.css');
 .badge {
-    font-size: 12px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(calc(100% - 0.4em), -50%);
-    padding: 0.1em 0.4em;
-    border-radius: 0.8em;
-    color: #fff;
-    user-select: none;
-    box-sizing: border-box;
-    background-color: v-bind(color);
-    border: 1px solid v-bind(textColor);
-    z-index: 2;
+  background-color: v-bind(color);
+  border: 1px solid v-bind(textColor);
 }
 
 .badge-dot {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.3em;
-    border-radius: 50%;
-    transform: translate(50%, -50%);
-    background-color: v-bind(color);
-    border: 1px solid v-bind(textColor);
-    z-index: 2;
+  background-color: v-bind(color);
+  border: 1px solid v-bind(textColor);
 }
 </style>

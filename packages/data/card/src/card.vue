@@ -19,56 +19,27 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-    title: String,          // 标题
-    foot: String            // 底部
+import { computed } from 'vue';
+
+type Props = {
+    title?: string,
+    foot?: string,
+    hoverShadow?: boolean
+}
+const props = withDefaults(defineProps<Props>(), {
+    title: '',
+    foot: '',
+    hoverShadow: true
+})
+
+let cardShadow = computed(() => {
+    return props.hoverShadow ? '0px 0px 12px rgba(0, 0, 0, .12)' : '0px 0px 2px rgba(0, 0, 0, .24)';
 })
 </script>
 
 <style scoped>
-.card-box {
-    height: fit-content;
-    width: fit-content;
-    padding: 1rem 2rem;
-    margin: 0.5rem;
-    color: #606266;
-    line-height: 1.3em;
-    background-color: white;
-    border-radius: 0.4em;
-    box-sizing: border-box;
-    transition: all 0.3s;
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, .24);
-}
-
+@import url('./card.css');
 .card-box:hover {
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, .12);
+  box-shadow: v-bind(cardShadow);
 }
-
-.title {
-    font-size: 1.2em;
-    padding-bottom: 1rem;
-    box-sizing: border-box;
-    border-bottom: 1px solid #eeeeee;
-}
-
-.card-content {
-    width: 100%;
-    overflow: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-.footbar {
-    font-size: 0.8em;
-    color: #727478;
-    width: 100%;
-    box-sizing: border-box;
-    padding-top: 1em;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1em;
-    border-top: 1px solid #eeeeee;
-}
-
 </style>

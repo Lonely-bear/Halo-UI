@@ -1,11 +1,11 @@
 <template>
     <div class="container">
-        <input class="input_value" type="text" model-value="modelValue" :value="modelValue"
+        <input class="input_value" ref="inputRef" type="text" model-value="modelValue" :value="modelValue"
             @input="event => $emit('update:modelValue', (<HTMLInputElement>event.target).value)" />
         <label class="input_icon">
             <HIcon name="date" size="1em"></HIcon>
         </label>
-        <div class="date-seletor">
+        <div class="date-seletor" :style="alwaysShow ? 'display: block' : ''">
             <div class="head">
                 <div class="title">
                     <span class="title-btn"><input class="date-show year" type="number" v-model="year" min="0"
@@ -20,7 +20,7 @@
                 <div class="item-previus" ref="itemPrevius" v-for="item in 7" @click="selectDatePrevius(item)">{{
                     item
                 }}</div>
-                <div class="item" ref="itemNormal" v-for="item in monthDaysNumber" @click="selectDate(item)"
+                <div class="item" ref="itemNormal" v-for="item in monthDaysNumber" @click="handleSelectDate(item)"
                     :title="year + '年' + month + '月' + item + '日'">{{ item }}</div>
                 <div class="item-next" ref="itemNext" v-for="item in (42 - monthDaysNumber - 7)"
                     @click="selectDateNext(item)">{{
@@ -41,19 +41,27 @@ import { computed, onMounted, reactive, ref, watch } from 'vue';
 import { HIcon } from '../../../../packages';
 
 //===============================父组件绑定的时间值====================================
-const props = defineProps({
-    modelValue: String,    // v-model绑定值
-    shake: Boolean         // 是否开启震动
+type Props = {
+    modelValue: string,
+    shake?: boolean
+    alwaysShow?: boolean
+}
+const props = withDefaults(defineProps<Props>(), {
+    modelValue: "",
+    shake: false,
+    alwaysShow: false
 })
-const emits = defineEmits([
-    'update:modelValue'
-])
+type Emits = {
+    (event: 'update:modelValue', value: string): void
+}
+const emits = defineEmits<Emits>()
 
 
 const select = ref<HTMLDivElement | null>(null);
 const itemNormal = ref<any>(null);
 const yearRef = ref<HTMLInputElement | null>(null);
 const monthRef = ref<HTMLInputElement | null>(null);
+const inputRef = ref<HTMLInputElement | null>(null);
 //===============================父组件绑定的时间值====================================
 
 //===============================定义用户选择的日期====================================
@@ -187,6 +195,11 @@ selectDateValue.day = day;
 // 前一天的日期默认为当天
 previusDay = selectDateValue;
 
+function handleSelectDate(number: number) {
+    inputRef.value?.focus();
+    selectDate(number)
+}
+
 /**
  * @param number 选中的日期
  * 1. 判断前一天是否为今天
@@ -250,6 +263,7 @@ function selectDatePrevius(number: number) {
         month.value--;
     }
     selectDate(number)
+    inputRef.value?.focus();
 }
 
 /**
@@ -264,6 +278,7 @@ function selectDateNext(number: number) {
         month.value++;
     }
     selectDate(number)
+    inputRef.value?.focus();
 }
 //==============================对选择的日期进行处理=================================
 

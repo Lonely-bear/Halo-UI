@@ -22,16 +22,20 @@
 import { ref, watch, onMounted } from 'vue';
 import { HButton } from '../../../index'
 
-const props = defineProps({
-    modelValue: Boolean,        // 是否显示
-    title: String               // 标题
+type Props = {
+    modelValue: boolean,
+    title?: string
+}
+const props = withDefaults(defineProps<Props>(), {
+    title: ''
 })
 
-const emits = defineEmits([
-    'confirm',                  // ‘确定’ 回调事件
-    'cancel',                   // ‘取消’ 回调事件
-    'update:modelValue'         // 绑定值的更新事件
-])
+type Emits = {
+    (event: 'confirm'): void, // ‘确定’ 回调事件
+    (event: 'cancel'): void, // ‘取消’ 回调事件
+    (event: 'update:modelValue', value: boolean): void // 绑定值的更新事件
+}
+const emits = defineEmits<Emits>()
 
 let modelBoxRef = ref<HTMLDivElement | null>(null);
 let modelContentRef = ref<HTMLDivElement | null>(null);
@@ -84,59 +88,5 @@ function cancel(): void {
 </script>
 
 <style scoped>
-.model-box {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0);
-    transition: all 1s;
-    z-index: 9999;
-}
-
-.model-content {
-    height: fit-content;
-    max-height: 90%;
-    max-width: 90%;
-    padding: 1rem 2rem;
-    font-size: 0.9em;
-    opacity: 0;
-    color: #606266;
-    line-height: 1.3em;
-    background-color: white;
-    border-radius: 0.4em;
-    position: fixed;
-    box-sizing: border-box;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    transition: all 0.3s;
-}
-
-.title {
-    font-size: 1.2em;
-    padding-bottom: 1rem;
-    box-sizing: border-box;
-    border-bottom: 1px solid #eeeeee;
-}
-
-.dialog-content {
-    width: 100%;
-    max-height: calc(90vh - 12em);
-    overflow: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-.toolbar {
-    width: 100%;
-    box-sizing: border-box;
-    padding-top: 1em;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 2em;
-    border-top: 1px solid #eeeeee;
-}
+@import url('./dialog.css');
 </style>

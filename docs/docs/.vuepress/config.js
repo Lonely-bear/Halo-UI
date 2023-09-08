@@ -37,12 +37,20 @@ const siderbarComponents = [
         text: 'link 链接',
         link: '/components/basic/link/',
       },
+      {
+        text: 'ellipsis 多余文本显示省略号',
+        link: '/components/basic/ellipsis/',
+      },
     ],
   },
   {
     text: 'Form 表单组件',
     link: '/components/form/',
     children: [
+      {
+        text: 'input 输入框',
+        link: '/components/form/input/',
+      },
       {
         text: 'date-selector 日期选择器',
         link: '/components/form/date-selector/',

@@ -7,7 +7,7 @@ export interface MessageOptions {
   duration?: number;
   offset?: number;
   isClose?: boolean,
-  onClose?: () => void;
+  onClose?: (el: Element) => void;
 }
 
 export type MessageParams = MessageOptions | string;
